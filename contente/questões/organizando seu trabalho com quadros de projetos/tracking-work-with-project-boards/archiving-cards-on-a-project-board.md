@@ -28,3 +28,122 @@ Automation in your project board does not apply to archived project board cards.
   ![Select view archive option from menu](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
 3. Above the project board card you want to unarchive, click **Restore**.
   ![Select restore project board card](/assets/images/help/projects/restore-card.png)
+include <string.h>
+
+//Constantes
+
+#define tamanho 5
+
+//Estrutura  
+
+struct taluno {
+
+int ra;
+
+int matricula;
+
+char arquivo[50];
+
+char extensao[50];
+
+ 
+
+};
+
+//Estrutura da Pilha
+
+struct tpilha {
+
+taluno dados[tamanho];
+
+int ini;
+
+int fim;
+
+};
+
+//Variáveis globais
+
+tpilha pilha;
+
+//Adicionar um elemento no final da Pilha
+
+void pilha_entrar(){
+
+if (pilha.fim == tamanho) {
+
+ 
+
+printf("\nA pilha está cheia, impossível empilhar!\n\n");
+
+system("pause");
+
+}
+
+else {
+
+printf("\nDigite o RA do aluno: ");
+
+scanf("%d", &pilha.dados[pilha.fim].ra);
+
+printf("\nDigite o nome do Arquivo: ");
+
+scanf("%s", pilha.dados[pilha.fim].arquivo);
+
+printf("\nDigite a extesao do Arquivo: ");
+
+scanf("%s", pilha.dados[pilha.fim].extensao);
+
+printf("\nDigite a matricula do Professor: ");
+
+scanf("%s", pilha.dados[pilha.fim].matricula);
+
+pilha.fim++;
+
+}
+
+}
+
+//Retirar o último elemento da Pilha
+
+void pilha_sair() {
+
+if (pilha.ini == pilha.fim) {
+
+printf("\nA pilha está vazia, impossível desempilhar!\n\n");
+
+system("pause");
+
+}
+
+else {
+
+pilha.dados[pilha.fim-1].ra = 0;
+
+strcpy(pilha.dados[pilha.fim-1].ra, "");
+
+strcpy(pilha.dados[pilha.fim-1].arquivo, "");
+
+pilha.fim--;
+
+}
+
+}
+
+//Mostrar o conteúdo da Pilha
+
+void pilha_mostrar() {
+
+int i;
+
+printf("[ ");
+
+for (i = 0; i < tamanho; i++) {
+
+printf("%d ", pilha.dados[i].ra);
+
+}
+
+printf("]\n\n");
+
+}
